@@ -1401,3 +1401,45 @@ body {
     width: 100%;
   }
 }
+
+/* ===== Loader → fly into header ===== */
+:root {
+  --bz-bg: #0b1b22;          /* loader backdrop tint */
+  --bz-header-fade: 320ms;
+  --bz-fly: 600ms;           /* fly duration */
+  --bz-loader-size: 120px;   /* loader logo size */
+}
+
+/* keep your header fixed; just fade it in after animation */
+.header { opacity: 0; transition: opacity var(--bz-header-fade) ease; }
+.header.bz-visible { opacity: 1; }
+
+/* overlay */
+.bz-loader{
+  position:fixed; inset:0; display:grid; place-items:center;
+  background:
+    radial-gradient(1100px 500px at 50% -10%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(900px 450px at 50% 120%, rgba(255,255,255,.05), transparent 60%),
+    var(--bz-bg);
+    /* background-color: white; */
+  z-index:9999;
+}
+.bz-loader-logo{
+  width:30%; 
+  /* width:var(--bz-loader-size);  */
+  height:auto;
+  filter:drop-shadow(0 6px 24px rgba(0,0,0,.45));
+  animation:bz-pulse 1600ms ease-in-out infinite, bz-float 4200ms ease-in-out infinite;
+  will-change:transform;
+}
+
+/* subtle idle motion while waiting */
+@keyframes bz-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+@keyframes bz-float { 0%,100%{translate:0 0} 50%{translate:0 -6px} }
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .bz-loader-logo{ animation:none; }
+  .header{ transition:none; }
+}
+
