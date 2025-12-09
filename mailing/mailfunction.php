@@ -7,12 +7,12 @@ require('./vendor/autoload.php');
 require 'mailingvariables.php';
 
 function mailfunction($mail_reciever_email, $mail_reciever_name, $mail_msg, $attachment = false){
-
+    
     $mail = new PHPMailer();
     $mail->isSMTP();
 
-    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
+   // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Host = $GLOBALS['mail_host'];
 
     $mail->Port = $GLOBALS['mail_port'];
