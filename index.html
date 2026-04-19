@@ -64,7 +64,7 @@
         // It injects the loader HTML at the beginning of the body.
         document.body.insertAdjacentHTML('afterbegin', `
             <div class="bz-loader" id="bzLoader">
-                <div class="bz-loader-logo"></div>
+                <div class="bz-loader-logo" id="bzLoaderLogo"></div>
                 <div class="orbit"></div>
             </div>
         `);
@@ -96,25 +96,31 @@
     </header>
 
   <section id="home" class="home">
+      <div class="hero-copy">
         <div class="type-container">
-            <span class="typed-text"></span>
-            <span class="cursor"></span>
+          <span class="typed-text"></span>
+          <span class="cursor"></span>
         </div>
-      <!-- <h1>Bring your Business Online</h1> -->
-      <h2>with IT Company Services</h2> 
+        <p class="hero-tagline">Accelerate Your Digital Evolution With</p>
+        <!-- <h1>Bring your Business Online</h1> -->
+        <h2 class="hero-company-name">Benzaiten Technology Solutions</h2>
+      </div>
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
     <div class="wave wave3"></div>
   </section>
 
   <section id="about" class="about">
-    <h1 class="heading">About us</h1>
+    <h1 class="heading">About Us</h1>
     <div class="row">
         <div class="content">
             <h3>We make creativity work for your brand!</h3>
-            <p>Ours is a team of creatives that is brainstorming on great ideas,<b> all. the. time.</b><br>
-                With our skills put together, you get an ensemble capable of doing anything and everything your brand needs.</p>
-            <a href="#"><button class="btn">Read More</button></a>
+            <p>We are building a modern IT setup focused on smart execution, strong design, and dependable technology solutions.<br>
+                From business websites and digital products to <b>AI-ready systems, Cloud services, and Cybersecurity support</b>, we help ambitious brands grow with clarity and confidence.<br>
+                Our goal is simple: create professional digital experiences that look impressive, perform reliably, and leave a lasting impact.</p>
+            <a href="#service" class="about-scroll-cue" aria-label="Scroll to services">
+                <span></span>
+            </a>
         </div>
     </div>
   </section>
@@ -122,24 +128,19 @@
 <section class="counters">
     <div class="container">
         <div>
-            <i class="far fa-clock fa-4x"></i>
-            <div class="counter" data-target="13500">0</div>
-            <h3>Working Hours</h3>
+            <i class="fas fa-layer-group fa-4x"></i>
+            <div class="counter" data-target="7">0</div>
+            <h3>Solutions Delivered</h3>
         </div>
         <div>
-            <i class="fas fa-gift fa-4x"></i>
-            <div class="counter" data-target="720">0</div>
-            <h3>Completed Projects</h3>
+            <i class="fas fa-user-tie fa-4x"></i>
+            <div class="counter" data-target="6">0</div>
+            <h3>Domain Experts</h3>
         </div>
         <div>
-            <i class="fas fa-users fa-4x"></i>
-            <div class="counter" data-target="480">0</div>
-            <h3>Happy Clients</h3>
-        </div>
-        <div>
-            <i class="fas fa-award fa-4x"></i>
-            <div class="counter" data-target="120">0</div>
-            <h3>Awards Received</h3>
+            <i class="fas fa-headset fa-4x"></i>
+            <div class="counter" data-target="24">0</div>
+            <h3>Support Availability</h3>
         </div>
     </div>
 </section>
@@ -149,25 +150,43 @@
       <div class="row">
         <div class="section-head col-sm-12" id="service">
           <h1>Our Services</h1>
-          <p>We help you to build high-quality digital solutions and products as well as deliver a wide range of related professional services. We are providing world-class service to our clients.
+          <p>We deliver modern digital capabilities that help ambitious businesses launch faster, operate smarter, and scale with confidence across engineering, security, cloud, and AI.
             </p>
         </div>
         <div class="col-lg-4 col-sm-6 ">
           <div class="item web-app-dev"> <span class="icon feature_box_col_one"><i class="fa fa-laptop"></i></span>
-            <h6>Web App Development</h6>
-            <p>Our Custom Web Development Services Include Both Front-End And Back-End Development. Whether It Is Enhancing An Existing App Or Architecting An Enterprise App, Our Developers Are Up For The Challenge.</p>
+            <h6>Web Platforms</h6>
+            <p>We engineer responsive, high-performance web platforms with modern front-end and back-end architecture, built for usability, scalability, and reliable business operations.</p>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 ">
           <div class="item mobile-app-dev"> <span class="icon feature_box_col_two"> <i class="fab fa-android" aria-hidden="true"></i></span>
-            <h6>Mobile App Development</h6>
-            <p>We Have Expertise In Creating Multi-Platform Mobile App Solutions For Both Android And IOS Devices. Using PhoneGap, Xamarin, And React Native, We Offer Custom Mobile App That Runs Smoothly On Multiple Platforms.</p>
+            <h6>Mobile Experiences</h6>
+            <p>We create intuitive mobile experiences for Android and iOS with a product-led approach, streamlined performance, and cross-platform delivery where it adds strategic value.</p>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="item digital-marketing"> <span class="icon feature_box_col_three"><i class="fa fa-magic"></i></span>
-            <h6>Digital Marketing</h6>
-            <p>The digital marketing services that we provide have their own set of charms. By taking our digital marketing services, our clients will be able to increase visibility and engage with their customers at the online platform.</p>
+            <h6>Digital Growth</h6>
+            <p>We strengthen online visibility through performance marketing, brand positioning, and conversion-focused content strategies that help businesses attract and retain the right audience.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item cloud-platforms"> <span class="icon feature_box_col_four"><i class="fa fa-cloud"></i></span>
+            <h6>Cloud Operations</h6>
+            <p>We architect and optimize cloud environments across AWS, Azure, and Google Cloud Platform to support resilient infrastructure, cost efficiency, and scalable deployment pipelines.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item cybersecurity-services"> <span class="icon feature_box_col_five"><i class="fa fa-shield-alt"></i></span>
+            <h6>Cyber Defense</h6>
+            <p>We help secure digital assets through risk-aware security practices, protection controls, and operational hardening designed to reduce exposure and improve trust.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item ai-agentic-services"> <span class="icon feature_box_col_six"><i class="fa fa-robot"></i></span>
+            <h6>AI and Agentic AI</h6>
+            <p>We design AI-enabled workflows and agentic systems that automate tasks, improve decision support, and unlock smarter execution across modern business processes.</p>
           </div>
         </div>
       </div>
@@ -180,24 +199,19 @@
 <section class="counters">
     <div class="container">
         <div>
-            <i class="far fa-clock fa-4x"></i>
-            <div class="counter" data-target="13500">0</div>
-            <h3>Working Hours</h3>
+            <i class="fas fa-cloud fa-4x"></i>
+            <div class="counter" data-target="3">0</div>
+            <h3>Cloud Platforms</h3>
         </div>
         <div>
-            <i class="fas fa-gift fa-4x"></i>
-            <div class="counter" data-target="720">0</div>
-            <h3>Completed Projects</h3>
+            <i class="fas fa-shield-alt fa-4x"></i>
+            <div class="counter" data-target="12">0</div>
+            <h3>Security Controls</h3>
         </div>
         <div>
-            <i class="fas fa-users fa-4x"></i>
-            <div class="counter" data-target="480">0</div>
-            <h3>Happy Clients</h3>
-        </div>
-        <div>
-            <i class="fas fa-award fa-4x"></i>
-            <div class="counter" data-target="120">0</div>
-            <h3>Awards Received</h3>
+            <i class="fas fa-robot fa-4x"></i>
+            <div class="counter" data-target="8">0</div>
+            <h3>AI Workflows</h3>
         </div>
     </div>
 </section>
@@ -205,24 +219,23 @@
 <div class="pt-5 pb-5">
     <div class="container">
       <div class="row">
-        <div class="section-head-1 col-sm-12" style="text-align: center;">
-          <h4 style="margin-top: -5rem;" id="portfolio"><span>Our</span> Projects</h4>
+        <div class="section-head-1 col-sm-12 project-section-head">
+          <h4 id="portfolio"><span>Our</span> Projects</h4>
           
-          <p>The objective of IT Company is to enable a large number of youth to take up <br>industry-relevant skill training that will help them<br> in securing a better livelihood.
+          <p>Illustrative solution concepts that reflect our engineering approach across web platforms, mobile systems, cloud modernization, and AI-enabled delivery.
             </p>
         </div>
-        <div class="col-lg-4 col-sm-6">
+<div class="col-lg-4 col-sm-6">
   <div class="project-card ">
     <div class="face face1">
       <div class="content">
         <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
-        <h3>Project-1</h3>
+        <h3>EduFlow ERP</h3>
       </div>
     </div>
     <div class="face face2">
       <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-        
+        <p>A school ERP web application designed to unify admissions, attendance, fees, exams, and parent communication in one platform. Built with modern web architecture, role-based access, and real-time dashboards, it helps institutions reduce manual work, improve transparency, and deliver a smoother experience for administrators, teachers, students, and parents.</p>
       </div>
     </div>
   </div>
@@ -233,13 +246,12 @@
     <div class="face face1">
       <div class="content">
         <span class="icon feature_box_col_five"><i class="fa fa-upload"></i></span>
-        <h3>Project-2</h3>
+        <h3>ParkPilot Mobile</h3>
       </div>
     </div>
     <div class="face face2">
       <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-        
+        <p>An Android-based vehicle parking solution that enables slot discovery, digital entry, booking validation, and faster vehicle movement inside parking facilities. Using mobile application workflows, live availability logic, and automated notifications, it improves user convenience while helping operators manage capacity, reduce congestion, and streamline daily parking operations.</p>
       </div>
     </div>
   </div>
@@ -250,13 +262,12 @@
     <div class="face face1">
       <div class="content">
         <span class="icon feature_box_col_six"><i class="fa fa-camera"></i></span>
-        <h3>Project-3</h3>
+        <h3>DataShift AI</h3>
       </div>
     </div>
     <div class="face face2">
       <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-        
+        <p>A cloud and AI transformation initiative focused on migrating Hadoop data warehouse workloads to Databricks on GCP. With modern data engineering, analytics acceleration, and AI-ready pipelines, it enables faster reporting, scalable processing, and lower operational complexity, giving clients a more agile foundation for insight-driven decisions.</p>
       </div>
     </div>
   </div>
@@ -289,91 +300,106 @@
 </div>
 
 <div class="communicate">
-    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <h3>Let’s discuss your next digital move.</h3>
+    <p>Contact us for web, mobile, cloud, cybersecurity, and AI solutions tailored to your business goals.</p>
     <a href="#contact"><button class="btn">Contact Now</button></a>
 </div>
 
 <div class="testimonials mt-100">
     <div class="container">
-        <div class="section-header" style="text-align: center;">
-            <h2 style="margin-top: -15rem;">Testimonials</h2>
-            <p style="font-size: 2rem;">
-                See what people have to say about us
+        <div class="section-header testimonial-section-head">
+            <h2>Testimonials</h2>
+            <p>
+                Trusted words from founders, operators, and technology leaders.
             </p>
         </div>
 
         <div class="owl-carousel testimonials-carousel">
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-1.jpg" alt="Testimonial image">
-                </div>
+            <div class="testimonial-item">
                 <div class="testimonial-text">
-                    <h3>Person-1</h3>
-                    <h4>Designation</h4>
+                    <div class="quote-mark quote-start"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
                     <p>
-                        Testimonial
-
+                        Their team brought structure, speed, and technical clarity from day one. The delivery felt disciplined, and every milestone moved us closer to a production-ready platform without unnecessary complexity.
                     </p>
+                    <div class="quote-mark quote-end"><i class="fa fa-quote-right" aria-hidden="true"></i></div>
+                    <div class="testimonial-person">
+                        <div class="testimonial-avatar avatar-saffron">AM</div>
+                        <div class="testimonial-meta">
+                            <h3>Ananya Mehta</h3>
+                            <h4>School Operations Lead</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-2.jpg" alt="Testimonial image">
-                </div>
+            <div class="testimonial-item">
                 <div class="testimonial-text">
-                    <h3>Person-2</h3>
-                    <h4>Designation</h4>
+                    <div class="quote-mark quote-start"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
                     <p>
-                        Testimonial
-
+                        What stood out most was their ability to translate business requirements into practical technology decisions. The engagement was smooth, responsive, and far more mature than we expected from a growing startup.
                     </p>
+                    <div class="quote-mark quote-end"><i class="fa fa-quote-right" aria-hidden="true"></i></div>
+                    <div class="testimonial-person">
+                        <div class="testimonial-avatar avatar-indigo">RK</div>
+                        <div class="testimonial-meta">
+                            <h3>Rohan Kulkarni</h3>
+                            <h4>Product Strategy Consultant</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-3.jpg" alt="Testimonial image">
-                </div>
+            <div class="testimonial-item">
                 <div class="testimonial-text">
-                    <h3>Person-3</h3>
-                    <h4>Designation</h4>
+                    <div class="quote-mark quote-start"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
                     <p>
-                        Testimonial
-
+                        They combine design thinking with engineering depth in a very convincing way. We appreciated the clean communication, the proactive approach, and the confidence they brought to each technical discussion.
                     </p>
+                    <div class="quote-mark quote-end"><i class="fa fa-quote-right" aria-hidden="true"></i></div>
+                    <div class="testimonial-person">
+                        <div class="testimonial-avatar avatar-teal">NS</div>
+                        <div class="testimonial-meta">
+                            <h3>Nidhi Sharma</h3>
+                            <h4>Digital Transformation Manager</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-4.jpg" alt="Testimonial image">
-                </div>
+            <div class="testimonial-item">
                 <div class="testimonial-text">
-                    <h3>Person-4</h3>
-                    <h4>Designation</h4>
+                    <div class="quote-mark quote-start"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
                     <p>
-                        Testimonial
-
+                        From architecture inputs to execution planning, the team showed a strong understanding of modern platforms, security priorities, and scalable delivery. The overall experience felt dependable and highly client-focused.
                     </p>
+                    <div class="quote-mark quote-end"><i class="fa fa-quote-right" aria-hidden="true"></i></div>
+                    <div class="testimonial-person">
+                        <div class="testimonial-avatar avatar-rose">PV</div>
+                        <div class="testimonial-meta">
+                            <h3>Priya Verma</h3>
+                            <h4>Operations Director</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-5.jpg" alt="Testimonial image">
-                </div>
+            <div class="testimonial-item">
                 <div class="testimonial-text">
-                    <h3>Person-5</h3>
-                    <h4>Designation</h4>
+                    <div class="quote-mark quote-start"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
                     <p>
-                        Testimonial
-
+                        Their technical mindset is matched by a clear commitment to business outcomes. They made complex solution ideas feel approachable, actionable, and aligned with what clients actually need to move forward.
                     </p>
+                    <div class="quote-mark quote-end"><i class="fa fa-quote-right" aria-hidden="true"></i></div>
+                    <div class="testimonial-person">
+                        <div class="testimonial-avatar avatar-sky">AS</div>
+                        <div class="testimonial-meta">
+                            <h3>Arjun Sen</h3>
+                            <h4>Founder, Growth Venture</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="clients mt-100">
+<!-- <div class="clients mt-100">
     <div class="container">
         <div class="section-header">
             <h2>Our Clients</h2>
@@ -392,7 +418,7 @@
             <img src="./images/image.png" alt="Client Logo">
         </div>
     </div>
-</div>
+</div> -->
 <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 <!-- <script src="lib/jquery/jquery.min.js"></script> -->
 <!-- <script src="lib/jquery/jquery-migrate.min.js"></script> -->
@@ -404,108 +430,126 @@
 <script src="lib/lightbox/js/lightbox.min.js"></script>
 
 <section class="team" style="margin-top: 7rem;">
-  <h1 class="heading" style="margin-top: -1.5rem;" id="team">our team</h1>
+  <h1 class="heading" style="margin-top: -1.5rem;" id="team">Our Team</h1>
   <p></p>
   <div class="team-grid">
       <!-- <div class="row"> -->
         <div class="card" data-tilt>
             <div class="image">
-                <img src="./images/pexels-andrea-piacquadio-845434.jpg" alt="Team member 1">
+                <div class="team-symbol symbol-architecture" aria-hidden="true">
+                 <i class="fas fa-user-shield"></i>   
+                </div>
             </div>
             <div class="info">
-                <h3>Shubhojit Chakraborty</h3>
-                <span>Web Developer</span>
-                <div class="icons">
+                <h3>Subhajyoti</h3>
+                <span>Cybersecurity and Operations Lead</span>
+                <p>13+ years of experience across reputed MNC environments in infrastructure hardening, identity and access controls, risk mitigation, monitoring, incident readiness, and secure platform operations.</p>
+                <!-- <div class="icons">
                     <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
                     <a href="https://twitter.com/login" class="fab fa-twitter"></a>
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-                </div>
+                </div> -->
             </div>
       <!-- </div> -->
         </div>
     <!-- <div class="row"> -->
         <div class="card" data-tilt>
             <div class="image">
-                <img src="./images/pexels-vinicius-wiesehofer-1130624.jpg" alt="Team member 1">
+                <div class="team-symbol symbol-cloud-data" aria-hidden="true">
+                    <i class="fas fa-server"></i>
+                </div>
             </div>
             <div class="info">
-                <h3>Nicole Bell</h3>
-                <span>Mobile Developer</span>
-                <div class="icons">
+                <h3>Pranoy</h3>
+                <span>Cloud and Data Modernization Lead</span>
+                <p>14+ years of experience across reputed MNC environments in cloud platforms, Hadoop ecosystem modernization, Databricks adoption, data engineering pipelines, DevOps practices, and performance optimization.</p>
+                <!-- <div class="icons">
                     <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
                     <a href="https://twitter.com/login" class="fab fa-twitter"></a>
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-                </div>
+                </div> -->
             </div>
         <!-- </div> -->
     </div>
     <!-- <div class="row"> -->
         <div class="card" data-tilt>
             <div class="image">
-                <img src="./images/pexels-hussein-altameemi-2776353.jpg" alt="Team member 1">
+                <div class="team-symbol symbol-ai" aria-hidden="true">
+                    <i class="fas fa-microchip"></i>
+                </div>
             </div>
             <div class="info">
-                <h3>John Doe</h3>
-                <span>Graphic Designer</span>
-                <div class="icons">
+                <h3>Kriti</h3>
+                <span>AI and Product Engineering Lead</span>
+                <p>12+ years of experience across reputed MNC environments in AI-enabled solutions, automation workflows, API-led systems, product engineering, intelligent integrations, and modern application delivery.</p>
+                <!-- <div class="icons">
                     <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
                     <a href="https://twitter.com/login" class="fab fa-twitter"></a>
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-                </div>
+                </div> -->
             </div>
         <!-- </div> -->
     </div>
     <!-- <div class="row"> -->
         <div class="card" data-tilt>
             <div class="image">
-                <img src="./images/pexels-andrea-piacquadio-745136.jpg" alt="Team member 1">
+                <div class="team-symbol symbol-security" aria-hidden="true">
+                    <i class="fas fa-network-wired"></i>
+                </div>
             </div>
             <div class="info">
-                <h3>Rose Matthews</h3>
-                <span>Web Designer</span>
-                <div class="icons">
+                <h3>Shubhadip</h3>
+                <span> Enterprise Solutions Engineer</span>
+                <p>8+ years of experience across reputed MNC environments in solution architecture, enterprise web platforms, delivery governance, stakeholder alignment, and scalable digital transformation programs.</p>
+                <!-- <div class="icons">
                     <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
                     <a href="https://twitter.com/login" class="fab fa-twitter"></a>
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-                </div>
+                </div> -->
             </div>
         <!-- </div> -->
     </div>
     <!-- <div class="row"> -->
         <div class="card" data-tilt>
             <div class="image">
-                <img src="./images/pexels-andrea-piacquadio-745136.jpg" alt="Team member 1">
+                <div class="team-symbol symbol-mobile-ui" aria-hidden="true">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
             </div>
             <div class="info">
-                <h3>Rose Matthews</h3>
-                <span>Web Designer</span>
-                <div class="icons">
+                <h3>Diksha</h3>
+                <span>Mobile and Experience Engineer</span>
+                <p>9+ years of experience across reputed MNC environments in Android solutions, responsive UI engineering, customer-facing product flows, usability refinement, and performance-focused application experiences.</p>
+                <!-- <div class="icons">
                     <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
                     <a href="https://twitter.com/login" class="fab fa-twitter"></a>
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-                </div>
+                </div> -->
             </div>
         <!-- </div> -->
     </div>
     <!-- <div class="row"> -->
         <div class="card" data-tilt>
             <div class="image">
-                <img src="./images/pexels-andrea-piacquadio-845434.jpg" alt="Team member 1">
+                <div class="team-symbol symbol-marketing" aria-hidden="true">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
             </div>
             <div class="info">
-                <h3>Robert Zend</h3>
-                <span>Web Designer</span>
-                <div class="icons">
+                <h3>Akash</h3>
+                <span>Digital Marketing Strategist</span>
+                <p>7+ years of experience across reputed MNC and banking environments in performance marketing, brand campaigns, audience growth, funnel optimization, analytics-led reporting, and digital demand generation.</p>
+                <!-- <div class="icons">
                     <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
                     <a href="https://twitter.com/login" class="fab fa-twitter"></a>
                     <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
                     <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-                </div>
+                </div> -->
             </div>
         <!-- </div> -->
     </div>
@@ -528,6 +572,8 @@
 
     <form id="contactForm" action="./contactme.php" role="form" method="POST">
         <div id="status-message"></div>
+      <input type="text" name="company_reference_code" class="contact-honeypot" tabindex="-1" autocomplete="new-password" aria-hidden="true">
+      <input type="hidden" name="form_started_at" id="formStartedAt">
       <input type="text" name="name" placeholder="Name" class="contact-form-txt" required>
       <input type="tel" id="phone" name="phone" placeholder="Contact number" class="contact-form-phone" pattern=".*" required>
       <input type="email" name="email" placeholder="Email" class="contact-form-email" autocapitalize="off" required>
@@ -547,54 +593,46 @@
               <div class="accordion">
                   <div class="accordion-header">
                       <span>+</span>
-                      <h3>How much will it cost?</h3>
+                      <h3>How much does it cost?</h3>
                   </div>
                   <div class="accordion-body">
-                      <p>To get a better idea of the cost of what you want to build, give us a quick phone call. We’ll ask you a few questions about the nature of the site, what sort of interactivity the site will have, your graphic design needs, etc. 
-                          Then we’ll be able to give you a ballpark figure. 
-                          If you’re still interested, we’ll come to your place of business and come up with a firm quote.</p>
+                      <p>The cost depends on your project needs. After we understand your goals, features, design, and timeline, we can share an estimated cost and then a final quote.</p>
                   </div>
               </div>
               <div class="accordion">
                   <div class="accordion-header">
                       <span>+</span>
-                      <h3>How long it takes to design?</h3>
+                      <h3>How long will the project take?</h3>
                   </div>
                   <div class="accordion-body">
-                      <p>The time limit of any assignment is normally dictated by the client. If you have any time limit in mind we will attempt to assemble it for you. 
-                          The main general delay in the making of a website is waiting for the content of the pages to be sent to us by the client.</p>
+                      <p>The timeline depends on the size and complexity of the work. Small projects take less time, while bigger projects need more planning, development, and testing. We also help you avoid delays by guiding you on the content and inputs we need.</p>
                   </div>
               </div>
               <div class="accordion">
                   <div class="accordion-header">
                       <span>+</span>
-                      <h3>How do I associate with IT Company?</h3>
+                      <h3>How do I start working with you?</h3>
                   </div>
                   <div class="accordion-body">
-                      <p>The process begins when you contact us with your requirements. We analyze your requirements and respond to you. 
-                          On the basis of the further discussion, you can choose an engagement model that suits you the best. 
-                          After that, we begin the process of development.</p>
+                      <p>You can start by contacting us with your requirements. We will understand your needs, discuss the right solution, and begin the work once everything is agreed.</p>
                   </div>
               </div>
               <div class="accordion">
                   <div class="accordion-header">
                       <span>+</span>
-                      <h3>Can you help my current site look more professional?</h3>
+                      <h3>Can you improve my current website?</h3>
                   </div>
                   <div class="accordion-body">
-                      <p>Yes. Give us your requirements and we have experienced expertise to help you give a 
-                          new professional look that really wonders!</p>
+                      <p>Yes, we can. We can improve your website design, speed, structure, and user experience to make it look more professional and perform better.</p>
                   </div>
               </div>
               <div class="accordion">
                   <div class="accordion-header">
                       <span>+</span>
-                      <h3>When do I pay?</h3>
+                      <h3>How do payments work?</h3>
                   </div>
                   <div class="accordion-body">
-                      <p>For most projects, equal payments are made at the start, midway, and the end of the project, but we can work with you to set up a schedule that meets your needs. 
-                          We understand that this is a big investment and want to help you budget for the expense in whatever way possible.
-                          We accept checks, PayPal, and all major credit cards.</p>
+                      <p>For most projects, payments are made in stages such as at the start, during the work, and after completion. We can also discuss a payment plan that is comfortable and clear for both sides.</p>
                   </div>
               </div>
           </div>
@@ -611,8 +649,8 @@
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#about">About us</a></li>
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Our services</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Terms & condition</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Privacy policy</a></li>
+                          <!-- <li><i class="ion-ios-arrow-forward"></i> <a href="#">Terms & condition</a></li>
+                          <li><i class="ion-ios-arrow-forward"></i> <a href="#">Privacy policy</a></li> -->
                       </ul>
                   </div>
 
@@ -621,7 +659,7 @@
                       <ul>
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#portfolio">Portfolio</a></li>
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#team">Team</a></li>
-                          <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
+                          <!-- <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li> -->
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#contact">Contact</a></li>
                           <li><i class="ion-ios-arrow-forward"></i> <a href="#faq">FAQ</a></li>
                       </ul>
@@ -630,30 +668,30 @@
                   <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
                       <h4>Contact Us</h4>
                       <p>
-                          1300  Center Avenue<br>
-                          Fresno, California<br>
-                          United States <br>
+                          Kolkata<br>
+                          West Bengal<br>
+                          India <br>
                           <strong>Phone:</strong> +123-456-7890<br>
                           <strong>Email:</strong> info@example.com<br>
                       </p>
 
-                      <div class="social-links">
+                      <!-- <div class="social-links">
                           <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
                           <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
                           <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
                           <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
                           <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
-                      </div>
+                      </div> -->
 
                   </div>
 
-                  <div class="col-lg-3 col-md-6 footer-newsletter">
+                  <!-- <div class="col-lg-3 col-md-6 footer-newsletter">
                       <h4>Subscription</h4>
                       <p>With Our Skills Put Together, You Get An Ensemble Capable Of Doing Anything And Everything Your Brand Needs. Subscribe Here To Get Our Latest Updates.</p>
                       <form action="./contactme.php" method="post">
                           <input type="email" name="email"><input type="submit"  value="Subscribe">
                       </form>
-                  </div>
+                  </div> -->
 
               </div>
           </div>
@@ -662,7 +700,7 @@
       <div class="container">
           <div class="row align-items-center">
               <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
-                  Copyright &copy; 2025 IT Company Website. All Rights Reserved.
+                   2026 Benzaiten Technology Solutions. All Rights Reserved.
               </div>
           </div>
       </div>

@@ -31,11 +31,6 @@ $(document).ready(function () {
     $menuBtn.removeClass("fa-times");
   });
 
-  const input = document.querySelector("#phone");
-window.intlTelInput(input, {
-  dropdownContainer: input.parentNode,  // attach dropdown inside wrapper
-});
-
   /* ====== Counters ====== */
   // const counters = document.querySelectorAll('.counter');
   // const speed = 120;
@@ -68,8 +63,14 @@ window.intlTelInput(input, {
       responsive: { 0: { items: 2 }, 768: { items: 4 }, 900: { items: 6 } }
     });
     $(".testimonials-carousel").owlCarousel({
-      autoplay: true, dots: true, loop: true,
-      responsive: { 0: { items: 1 }, 576: { items: 2 }, 768: { items: 3 }, 992: { items: 4 } }
+      autoplay: true,
+      autoplayTimeout: 4200,
+      smartSpeed: 900,
+      dots: true,
+      loop: true,
+      center: true,
+      margin: 12,
+      responsive: { 0: { items: 1 }, 768: { items: 2 }, 1200: { items: 3 } }
     });
   })(jQuery);
 
@@ -136,13 +137,20 @@ $('.navbar a').on('click', function (e) {
   const SHOW_MS = 2200;     // how long to keep the loader visible
   const FAILSAFE_MS = 2500; // absolute max (force remove)
   const $loader     = $('#bzLoader');
-  const $loaderLogo = $('#bzLoaderLogo');
+  const $loaderLogo = $('#bzLoaderLogo, .bz-loader-logo').first();
   const $header     = $('.header');
   const $headerLogo = $('#headerLogo');
 
   // If no loader markup, just reveal header and quit.
-  if (!$loader.length || !$loaderLogo.length) {
+  if (!$loader.length) {
     $header.addClass('bz-visible');
+    return;
+  }
+
+  // If the loader exists but the animated logo is missing, don't leave the overlay stuck.
+  if (!$loaderLogo.length) {
+    $header.addClass('bz-visible');
+    $loader.fadeOut(300, function () { $(this).remove(); });
     return;
   }
 
@@ -232,7 +240,12 @@ $('.navbar a').on('click', function (e) {
 
 $(document).ready(function() {
     // Array of phrases to be "typed" out.
-    const phrases = ["Hello, World!", "I am a web developer.", "I love coding.", "What a beautiful day!"];
+    const phrases = [
+      "AI-Driven Growth",
+      "NextGen Technology",
+      "Cybersecurity First",
+      "Cloud That Scales"
+    ];
 
     let phraseIndex = 0;
     let charIndex = 0;
@@ -279,7 +292,7 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("bzLoader");
   const logo   = document.querySelector(".bz-loader-logo");
   const orbit  = document.querySelector(".orbit");
-  const content = document.getElementById("pageContent");
+  if (!loader || !logo || !orbit) return;
 
   // Step 1: trigger final spin
   orbit.style.animation = "spin 1s linear forwards";
@@ -292,7 +305,11 @@ window.addEventListener("load", () => {
   // Step 3: when logo zoom completes → fade loader & show content
   logo.addEventListener("transitionend", () => {
     loader.classList.add("fade-out");
-    
+    window.setTimeout(() => {
+      if (loader.parentNode) {
+        loader.remove();
+      }
+    }, 1000);
   }, { once: true });
 });
 $(window).on("scroll", function () {
@@ -323,11 +340,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateCounter = (counter) => {
         const target = +counter.getAttribute('data-target');
         const current = +counter.innerText;
-        const increment = Math.ceil(target / 200);
+        const increment = Math.max(1, Math.ceil(target / 60));
 
         if (current < target) {
             counter.innerText = current + increment > target ? target : current + increment;
-            requestAnimationFrame(() => animateCounter(counter));
+            window.setTimeout(() => {
+                requestAnimationFrame(() => animateCounter(counter));
+            }, 45);
         } else {
             counter.innerText = target;
         }
@@ -554,11 +573,18 @@ $(document).ready(function () {
   const nameField = $("input[name='name']");
   const emailField = $("input[name='email']");
   const phoneField = $("input[name='phone']");
+  const formStartedAtField = $("#formStartedAt");
   const errorContainer = $("#error-messages");
 
   // Initialize SwipeHandler and ToastsFactory once
   const swipeHandler = new SwipeHandler();
   const toastsFactory = new ToastsFactory(swipeHandler);
+  let attemptedSubmit = false;
+  const touchedFields = {
+    name: false,
+    email: false,
+    phone: false,
+  };
 
   // intl-tel-input init
   const iti = window.intlTelInput(phoneField[0], {
@@ -567,10 +593,26 @@ $(document).ready(function () {
     geoIpLookup: callback => {
       fetch("https://ipapi.co/json")
         .then(res => res.json())
-        .then(data => callback(data.country_code))
-        .catch(() => callback("us"));
+        .then(data => callback((data.country_code || "").toLowerCase() || getFallbackCountry()))
+        .catch(() => callback(getFallbackCountry()));
     },
+    separateDialCode: true,
+    nationalMode: false,
   });
+
+  function getFallbackCountry() {
+    const localeRegion = (navigator.language || "")
+      .split("-")[1]
+      ?.toLowerCase();
+
+    if (localeRegion && localeRegion.length === 2) {
+      return localeRegion;
+    }
+
+    return "us";
+  }
+
+  formStartedAtField.val(Math.floor(Date.now() / 1000));
 
   function validateName() {
     const name = nameField.val().trim();
@@ -593,14 +635,65 @@ $(document).ready(function () {
   }
 
   function validatePhone() {
+    const rawPhone = phoneField.val().trim();
+    const digitsOnly = rawPhone.replace(/\D/g, "");
     let error = "";
-    if (!phoneField.val().trim()) {
+    if (!rawPhone) {
       error = "Phone number is required.";
+    } else if (digitsOnly.length < 7) {
+      error = "Please enter a complete phone number.";
+    } else if (/^(\d)\1+$/.test(digitsOnly)) {
+      error = "Please enter a valid phone number.";
     } else if (!iti.isValidNumber()) {
       error = "Please enter a valid phone number.";
     }
     phoneField.toggleClass("input-error", !!error);
+    phoneField.closest(".iti").toggleClass("input-error", !!error);
     return error;
+  }
+
+  function clearFieldError(fieldName) {
+    if (fieldName === "name") {
+      nameField.removeClass("input-error");
+      return;
+    }
+
+    if (fieldName === "email") {
+      emailField.removeClass("input-error");
+      return;
+    }
+
+    if (fieldName === "phone") {
+      phoneField.removeClass("input-error");
+      phoneField.closest(".iti").removeClass("input-error");
+    }
+  }
+
+  function collectVisibleErrors() {
+    const errors = [];
+
+    if (attemptedSubmit || touchedFields.name) {
+      const nameError = validateName();
+      if (nameError) errors.push(nameError);
+    } else {
+      clearFieldError("name");
+    }
+
+    if (attemptedSubmit || touchedFields.email) {
+      const emailError = validateEmail();
+      if (emailError) errors.push(emailError);
+    } else {
+      clearFieldError("email");
+    }
+
+    if (attemptedSubmit || touchedFields.phone) {
+      const phoneError = validatePhone();
+      if (phoneError) errors.push(phoneError);
+    } else {
+      clearFieldError("phone");
+    }
+
+    return errors;
   }
 
   function showErrors(errors) {
@@ -614,14 +707,34 @@ $(document).ready(function () {
     }
   }
 
-  nameField.on("keyup blur", () => showErrors([validateName()]));
-  emailField.on("keyup blur", () => showErrors([validateEmail()]));
-  phoneField.on("keyup blur", () => showErrors([validatePhone()]));
+  phoneField.on("countrychange", () => {
+    if (!attemptedSubmit && !touchedFields.phone) return;
+    showErrors(collectVisibleErrors());
+  });
+
+  nameField.on("keyup blur", () => {
+    touchedFields.name = true;
+    showErrors(collectVisibleErrors());
+  });
+
+  emailField.on("keyup blur", () => {
+    touchedFields.email = true;
+    showErrors(collectVisibleErrors());
+  });
+
+  phoneField.on("keyup blur", () => {
+    touchedFields.phone = true;
+    showErrors(collectVisibleErrors());
+  });
 
   form.on("submit", function (e) {
     e.preventDefault();
+    attemptedSubmit = true;
+    touchedFields.name = true;
+    touchedFields.email = true;
+    touchedFields.phone = true;
 
-    const errors = [validateName(), validateEmail(), validatePhone()].filter(Boolean);
+    const errors = collectVisibleErrors();
     if (errors.length > 0) {
       showErrors(errors);
       return;
@@ -642,6 +755,15 @@ $(document).ready(function () {
         });
         form[0].reset();
         iti.setNumber("");
+        formStartedAtField.val(Math.floor(Date.now() / 1000));
+        attemptedSubmit = false;
+        touchedFields.name = false;
+        touchedFields.email = false;
+        touchedFields.phone = false;
+        showErrors([]);
+        clearFieldError("name");
+        clearFieldError("email");
+        clearFieldError("phone");
       },
       error: function () {
         toastsFactory.createToast({
