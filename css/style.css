@@ -3373,7 +3373,7 @@ section,
   margin: 0;
   color: #c8995b;
   font-family: "Manrope", sans-serif;
-  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  font-size: clamp(2.5rem, 2.4vw, 2.2rem);
   font-weight: 850;
   line-height: 1.08;
   letter-spacing: 0.185em;
@@ -3416,6 +3416,150 @@ section,
     font-size: clamp(1rem, 3.6vw, 1.35rem);
     letter-spacing: 0.01em;
     line-height: 1.15;
+  }
+}
+
+@media (max-width: 767px) {
+  .team .team-grid .card {
+    min-height: 25rem;
+    overflow: hidden;
+    padding-top: 1.6rem;
+  }
+
+  .team .team-grid .card .image {
+    position: relative;
+    margin-top: 0.4rem;
+    padding-top: 3.2rem;
+  }
+
+  .team .team-grid .card .image::before {
+    content: "";
+    position: absolute;
+    top: -1rem;
+    left: 0.2rem;
+    z-index: 3;
+    width: 7.2rem;
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:
+      linear-gradient(135deg, transparent 0 33%, rgba(255, 255, 255, 0.58) 34% 43%, transparent 44% 100%),
+      radial-gradient(circle at 50% 50%, #ffd94a 0 45%, transparent 46%),
+      radial-gradient(circle at 50% 50%, #fff06a 0 54%, transparent 55%),
+      repeating-conic-gradient(from 3deg, #f7bd13 0deg 8deg, #ffd84f 8deg 16deg);
+    border: 0.25rem solid #eca800;
+    box-shadow: 0 0.8rem 1.6rem rgba(16, 33, 54, 0.18);
+    color: #092347;
+    font-family: "Manrope", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    transform: rotate(-12deg);
+  }
+
+  .team .team-grid .card .image::after {
+    content: "Yrs. EXP";
+    position: absolute;
+    top: 4.2rem;
+    left: 1rem;
+    z-index: 4;
+    width: 5.5rem;
+    color: #092347;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-align: center;
+    transform: rotate(-12deg);
+  }
+
+  .team .team-grid .card:nth-child(1) .image::before {
+    content: "13+";
+  }
+
+  .team .team-grid .card:nth-child(2) .image::before {
+    content: "14+";
+  }
+
+  .team .team-grid .card:nth-child(3) .image::before {
+    content: "12+";
+  }
+
+  .team .team-grid .card:nth-child(4) .image::before {
+    content: "8+";
+  }
+
+  .team .team-grid .card:nth-child(5) .image::before {
+    content: "9+";
+  }
+
+  .team .team-grid .card:nth-child(6) .image::before {
+    content: "7+";
+  }
+
+  .team .team-grid .card .info p {
+    display: none;
+  }
+
+  .team .team-grid .card .info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .team .team-grid .card .info span {
+    font-size: 1.35rem;
+    line-height: 1.45;
+    padding: 0 1rem 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .pt-5.pb-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .section-head,
+  .section-head-1,
+  .project-section-head,
+  .testimonial-section-head,
+  .clients .section-header {
+    margin-bottom: 2.4rem;
+  }
+
+  .heading,
+  .clients .section-header h2,
+  .section-head h1,
+  .testimonials .section-header h2,
+  .section-head-1 h4 {
+    padding-top: 4rem;
+  }
+
+  .heading::before,
+  .clients .section-header h2::before,
+  .section-head h1::before,
+  .testimonials .section-header h2::before,
+  .section-head-1 h4::before {
+    top: 3.8rem;
+  }
+
+  .testimonials {
+    padding: 6rem 0 4rem;
+  }
+
+  .clients {
+    padding: 6rem 0;
+  }
+
+  .team {
+    margin-top: 4rem !important;
+    padding-bottom: 3rem;
+  }
+
+  .contact {
+    padding-bottom: 3rem;
   }
 }
 
