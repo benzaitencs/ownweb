@@ -3418,3 +3418,23 @@ section,
     line-height: 1.15;
   }
 }
+
+@media (max-width: 768px) {
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  .header .navbar {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(.65,.05,.36,1);
+  }
+
+  .header .navbar.active {
+    top: 0;
+    transform: translateX(0);
+  }
+}

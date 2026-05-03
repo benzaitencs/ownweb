@@ -1,47 +1,36 @@
 
 $(document).ready(function () {
-   const $menuBtn = $(".fa-bars");
+  const $menuBtn = $(".fa-bars");
   const $navbar = $(".navbar");
   const $header = $(".header");
-  const $logo = $(".logo");
 
   /* ====== Mobile nav toggle ====== */
-  $('.fa-bars').click(function () {
-    $(this).toggleClass('fa-times');
-    $('.navbar').toggleClass('nav-toggle');
+  $menuBtn.on("click", function () {
+    $(this).toggleClass("fa-times");
+    $navbar.toggleClass("active");
+    $("body").toggleClass("nav-open", $navbar.hasClass("active"));
   });
 
   $(window).on('load scroll', function () {
-    $('.fa-bars').removeClass('fa-times');
-    $('.navbar').removeClass('nav-toggle');
-
-  if ($(window).scrollTop() > 35) {
-  $('.header').css({ background: '#002e5f', boxShadow: '0 .2rem .5rem rgba(0,0,0,.4)' })
-              .addClass('white-shadow-hover scrolled');
-  // $('.logo').css({ background: 'rgba(63, 37, 37, 0.2)' });
-} else {
-  $('.header').css({ background: 'none', boxShadow: 'none' })
-              .removeClass('white-shadow-hover scrolled');
-  // $('.logo').css({ background: 'rgba(255, 255, 255, 0.2)' });
-}
+    if ($(window).scrollTop() > 35) {
+      $header.css({ background: '#002e5f', boxShadow: '0 .2rem .5rem rgba(0,0,0,.4)' })
+        .addClass('white-shadow-hover scrolled');
+    } else {
+      $header.css({ background: 'none', boxShadow: 'none' })
+        .removeClass('white-shadow-hover scrolled');
+    }
 
   });
-   $navbar.find("a").click(function () {
+  $navbar.find("a").click(function () {
     $navbar.removeClass("active");
     $menuBtn.removeClass("fa-times");
+    $("body").removeClass("nav-open");
   });
 
   /* ====== Counters ====== */
   // const counters = document.querySelectorAll('.counter');
   // const speed = 120;
  
-   const menuBtn = document.querySelector(".fa-bars");
-  const navbar = document.querySelector(".navbar");
-
-  menuBtn.addEventListener("click", () => {
-    navbar.classList.toggle("active");
-  });
-
   /* ====== Owl Carousels ====== */
   (function ($) {
     "use strict";
@@ -72,12 +61,15 @@ $(document).ready(function () {
   // Smooth scroll for all anchor links
 $('.navbar a').on('click', function (e) {
   if (this.hash !== "") {
+    let target = this.hash;
+    const $target = $(target);
+
+    if (!$target.length) return;
+
     e.preventDefault();
 
-    let target = this.hash;
-
     $('html, body').animate({
-      scrollTop: $(target).offset().top
+      scrollTop: $target.offset().top
     }, 1000, 'easeInOutExpo');  // same easing as your back-to-top
 
     // Optional: update the URL hash without jumping
@@ -557,6 +549,8 @@ class ToastsFactory {
 
 $(document).ready(function () {
   const form = $("#contactForm");
+  if (!form.length) return;
+
   const nameField = $("input[name='name']");
   const emailField = $("input[name='email']");
   const phoneField = $("input[name='phone']");
