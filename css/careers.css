@@ -522,9 +522,12 @@ body{
 
     .header .navbar {
         position: fixed;
-        inset: 0;
-        width: 100vw;
-        height: 100vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: min(84vw, 36rem);
+        max-width: calc(100vw - 5.6rem);
+        height: 100dvh;
         transform: translateX(-100%);
         transition: transform 0.35s cubic-bezier(.65,.05,.36,1);
     }
