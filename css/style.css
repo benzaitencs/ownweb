@@ -3996,3 +3996,141 @@ section,
     transform: translateX(0);
   }
 }
+
+/* ---------------- Typography system ---------------- */
+:root {
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --text-hero: clamp(2.8rem, 4.8vw, 5.6rem);
+  --text-section-title: clamp(2.8rem, 2.2vw, 3.6rem);
+  --text-subtitle: clamp(1.65rem, 1.2vw, 2rem);
+  --text-card-title: clamp(1.85rem, 1vw, 2.2rem);
+  --text-body: clamp(1.42rem, 0.55vw + 1.2rem, 1.65rem);
+  --text-small: clamp(1.2rem, 0.35vw + 1.05rem, 1.4rem);
+  --leading-tight: 1.2;
+  --leading-normal: 1.65;
+  --leading-relaxed: 1.78;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.section-head h1,
+.section-head-1 h4,
+.project-section-head h4,
+.testimonial-section-head h2,
+.clients .section-header h2,
+.team .team-grid .card .info h3,
+.pt-5.pb-5 .item h6,
+.project-card .face.face1 .content h3,
+.home .hero-company-name,
+.typed-text {
+  font-family: var(--font-heading);
+}
+
+.heading,
+.section-head h1,
+.section-head-1 h4,
+.project-section-head h4,
+.testimonial-section-head h2,
+.clients .section-header h2 {
+  font-size: var(--text-section-title);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.home h2,
+.typed-text {
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+  font-weight: 800;
+}
+
+.hero-tagline,
+.about .row .content h3 {
+  font-size: var(--text-subtitle);
+  line-height: 1.45;
+}
+
+.about .row .content p,
+.section-head p,
+.section-head-1 p,
+.project-section-head p,
+.testimonial-section-head p,
+.clients .section-header p,
+.pt-5.pb-5 .item p,
+.project-card .face.face2 .content p,
+.testimonials .testimonial-text,
+.team .team-grid .card .info p,
+.faq .row .accordion-container .accordion .accordion-body,
+.footer .footer-top .footer-contact p,
+.footer .footer-top .footer-links ul a {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  letter-spacing: 0;
+}
+
+.pt-5.pb-5 .item h6,
+.project-card .face.face1 .content h3,
+.team .team-grid .card .info h3,
+.faq .row .accordion-container .accordion .accordion-header h3 {
+  font-size: var(--text-card-title);
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+.team .team-grid .card .info span,
+.footer .footer-top h4,
+.footer .copyright,
+.footer .credit,
+.contact-form-txt,
+.contact-form-email,
+.contact-form-phone,
+.contact-form-txtarea,
+.contact-form-btn {
+  font-size: var(--text-small);
+  line-height: 1.45;
+}
+
+.footer .footer-top h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-hero: clamp(2rem, 8vw, 2.8rem);
+    --text-section-title: clamp(2.4rem, 8vw, 3rem);
+    --text-subtitle: 1.55rem;
+    --text-card-title: 1.8rem;
+    --text-body: 1.38rem;
+    --text-small: 1.25rem;
+  }
+
+  .heading,
+  .section-head h1,
+  .section-head-1 h4,
+  .project-section-head h4,
+  .testimonial-section-head h2,
+  .clients .section-header h2 {
+    letter-spacing: 0.025em;
+  }
+}
