@@ -528,6 +528,9 @@ body{
         width: min(84vw, 36rem);
         max-width: calc(100vw - 5.6rem);
         height: 100dvh;
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
         transform: translateX(-100%);
         transition: transform 0.35s cubic-bezier(.65,.05,.36,1);
     }
