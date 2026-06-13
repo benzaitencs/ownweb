@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
 
 *{
     font-family: 'Poppins', sans-serif;
@@ -685,5 +685,124 @@ body{
     {
         color: #aaa;
         font-size: 1.5rem;
+    }
+}
+
+/* ---------------- Typography system ---------------- */
+:root {
+    --font-heading: "Manrope", sans-serif;
+    --font-body: "Poppins", sans-serif;
+    --text-hero: clamp(3.2rem, 4.2vw, 5.5rem);
+    --text-section-title: clamp(2.8rem, 2.2vw, 3.6rem);
+    --text-subtitle: clamp(1.6rem, 1.1vw, 2rem);
+    --text-body: clamp(1.42rem, 0.55vw + 1.2rem, 1.65rem);
+    --text-small: clamp(1.2rem, 0.35vw + 1.05rem, 1.4rem);
+    --leading-tight: 1.2;
+    --leading-normal: 1.65;
+    --leading-relaxed: 1.78;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: var(--font-body);
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a,
+p,
+span,
+li,
+label,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.home h2,
+.footer .footer-top h4 {
+    font-family: var(--font-heading);
+}
+
+.home h2 {
+    font-size: var(--text-hero);
+    font-weight: 800;
+    line-height: var(--leading-tight);
+    letter-spacing: 0.02em;
+}
+
+.heading {
+    font-size: var(--text-section-title);
+    font-weight: 800;
+    line-height: var(--leading-tight);
+    letter-spacing: 0.04em;
+}
+
+.career-heading p,
+.footer .footer-top .footer-contact p,
+.footer .footer-top .footer-links ul a,
+.footer .footer-top .footer-newsletter p {
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+}
+
+.career-form-txt,
+.career-form-experience,
+.career-form-email,
+.career-form-phone,
+.career-form-txtarea,
+.career-form-btn,
+.career-form-txt::placeholder,
+.career-form-experience::placeholder,
+.career-form-email::placeholder,
+.career-form-phone::placeholder,
+.career-form-txtarea::placeholder,
+.radio,
+.upload,
+.footer .credit,
+.footer .copyright {
+    font-size: var(--text-small);
+    line-height: 1.45;
+}
+
+.footer .footer-top h4 {
+    font-size: var(--text-small);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+    :root {
+        --text-hero: clamp(2.8rem, 10vw, 4rem);
+        --text-section-title: clamp(2.4rem, 8vw, 3rem);
+        --text-subtitle: 1.55rem;
+        --text-body: 1.38rem;
+        --text-small: 1.25rem;
+    }
+
+    .heading {
+        letter-spacing: 0.025em;
     }
 }
